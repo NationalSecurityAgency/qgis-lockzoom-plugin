@@ -2,16 +2,19 @@ from qgis.PyQt.QtCore import Qt, QUrl
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction
 from qgis.core import QgsCoordinateReferenceSystem
+import webbrowser
 
 import os
 import math
 
-# Notes: l = iface.mapCanvas().currentLayer()
-# p = l.dataProvider()
-# p.dpi()
-# p.nativeResolutions()
-# c = iface.mapCanvas()
-# c.mapUnitsPerPixel()
+''' Notes: 
+l = iface.mapCanvas().currentLayer()
+p = l.dataProvider()
+p.nativeResolutions()
+p.dpi()
+c = iface.mapCanvas()
+c.mapUnitsPerPixel()
+'''
 
 r3857=[0.29858214173896974, 0.5971642834779395, 1.194328566955879, 2.388657133911758, 4.777314267823516, 9.554628535647032, 19.109257071294063, 38.21851414258813, 76.43702828517625, 152.8740565703525, 305.748113140705, 611.49622628141, 1222.99245256282, 2445.98490512564, 4891.96981025128, 9783.93962050256, 19567.87924100512, 39135.75848201024, 78271.51696402048, 156543.03392804097]
 
@@ -37,6 +40,11 @@ class LockZoomToTiles:
         self.action.setCheckable(True)
         self.iface.addPluginToMenu("Lock zoom to tile scale", self.action)
         self.iface.addToolBarIcon(self.action)
+
+        icon = QIcon(os.path.dirname(__file__) + '/images/help.png')
+        self.helpAction = QAction(icon, "Help", self.iface.mainWindow())
+        self.helpAction.triggered.connect(self.help)
+        self.iface.addPluginToMenu('Lock zoom to tile scale', self.helpAction)
         
         self.checkCrs()
         self.canvas.destinationCrsChanged.connect(self.checkCrs)
@@ -46,12 +54,18 @@ class LockZoomToTiles:
         '''Unload from the QGIS interface'''
         self.iface.removePluginMenu('Lock zoom to tile scale', self.action)
         self.iface.removeToolBarIcon(self.action)
+        self.iface.removePluginMenu("Lock zoom to tile scale", self.helpAction)
         self.canvas.destinationCrsChanged.disconnect(self.checkCrs)
         if self.islocking == True:
             try:
                 self.canvas.scaleChanged.disconnect(self.lockIt)
             except Exception:
                 pass
+        
+    def help(self):
+        '''Display a help page'''
+        url = QUrl.fromLocalFile(os.path.dirname(__file__) + "/index.html").toString()
+        webbrowser.open(url, new=2)
 
     def lockIt(self):
         '''Set the focus of the copy coordinate tool'''

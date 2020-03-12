@@ -1,12 +1,12 @@
 [general]
-name=Lock Zoom to Tile Scale
+name=Lock Zoom to Tile Scale (EPSG:3857 & EPSG:4326 only)
 qgisMinimumVersion=3.2
-description=Lock the zoom level for EPSG:3857 and EPSG:4326 to predefined scales that are optimal for viewing XYZ and WMTS tiles.
-version=3.0.0
+description=Lock the QGIS canvas scale/zoom level for EPSG:3857 and EPSG:4326 projects to predefined scales that are optimal for viewing XYZ and WMTS tiles.
+version=3.0.1
 author=C Hamilton
 email=adenaculture@gmail.com
 about=
-    If the QGIS scale does not match the scale of tiles being delivered by a WMTS or XYZ map server, then the incoming tiles are resized to the QGIS scale. The result is that the imagery and text can be degraded and the text may be hard to read. If the QGIS scale matches the scale of the incoming tiles, then the best clarity of the map is achieved. This plugin locks the zoom level to the map server's predefined scales.
+    If the QGIS scale does not match the scale of tiles delivered by a WMTS or XYZ map server, then the incoming tiles are resized to fit the QGIS canvas. The result is that the imagery and text can be degraded and the text may become hard to read. If the QGIS scale matches the scale of the incoming tiles, then the best clarity of the map is achieved. This plugin locks the zoom level to the map server's predefined scales.
 
     The plugin is enabled when the QGIS CRS is either EPSG:3857 or EPSG:4326 and a layer has been added to the QGIS project. To lock the layer scale, select "Plugins->Lock zoom to tile scale->Lock zoom scale" from the QGIS menu or else select the icon from the toolbar.
 tracker=https://github.com/NationalSecurityAgency/qgis-lockzoom-plugin/issues
