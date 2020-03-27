@@ -17,4 +17,5 @@ category=Plugins
 icon=images/zoomLocked.png
 experimental=False
 deprecated=False
-# changelog=
+changelog=
+    3.0.2 - Increased max zoom level from 19 to 29
