@@ -9,7 +9,7 @@ deploy:
 	cp -vf $(EXTRAS) $(PLUGINS)
 	cp -vfr images $(PLUGINS)
 	cp -vfr doc $(PLUGINS)
-	cp -vf helphead.html $(PLUGINS)/index.html
-	python -m markdown -x extra readme.md >> $(PLUGINS)/index.html
-	echo '</body>' >> $(PLUGINS)/index.html
-
+	cp -vf helphead.html index.html
+	python -m markdown -x extra readme.md >> index.html
+	echo '</body>' >> index.html
+	cp -vf index.html $(PLUGINS)/index.html

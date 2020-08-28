@@ -1,0 +1,47 @@
+<head>
+<style>
+body {
+    font:13.34px helvetica,arial,freesans,clean,sans-serif;
+    color:black;
+    line-height:1.4em;
+    background-color: #F8F8F8;
+    padding: 0.7em;
+}
+pre {
+    margin:1em 0;
+    font-size:12px;
+    background-color:#eee;
+    border:1px solid #ddd;
+    padding:5px;
+    line-height:1.5em;
+    color:#444;
+    overflow:auto;
+    -webkit-box-shadow:rgba(0,0,0,0.07) 0 1px 2px inset;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;border-radius:3px;
+}
+pre code {
+    padding:0;
+    font-size:12px;
+    background-color:#eee;
+    border:none;
+}
+code {
+    font-size:12px;
+    background-color:#f8f8ff;
+    color:#444;
+    padding:0 .2em;
+    border:1px solid #dedede;
+}
+</style>
+</head>
+<body>
+<h1>Lock Zoom to Tile Scale (EPSG:3857 &amp; EPSG:4326 only)</h1>
+<p>The purpose of this plugin is to match the QGIS zoom / resolution level of the canvas to match the zoom / resolution of the map server when TMS/XYZ or WMTS layers are added to QGIS. This plugin is primarily applicable to the WGS 84 Web Mercator (EPSG:3857) projection that is so prevalent on the Internet today. With EPSG:3857 the zoom resolution of each level is strictly defined.</p>
+<p>The plugin can work with WGS84 (EPSG:4326) projections much of the time. For GeoServer map servers, EPSG:4236 zoom levels are strictly defined, but ESRI map servers are not. The hard coded EPSG:4326 settings in the plugin will perfectly match the settings from a GeoServer and will probably render a clearer picture for other map servers.</p>
+<p>Once the plugin is installed, if you have a layer displayed and the project projection is either EPSG:3857 or EPSG:4326, then this plugin will be enabled. It can be selected from the toolbar with this icon <img src="images/zoomUnlocked.png" alt="Unlocked"> which is its unlocked state. If you press the button it will look like this <img src="images/zoomLocked.png" alt="Locked"> and the QGIS zoom level will be locked to the best zoom level for image clarity. The plugin can also be selected from <strong><em>Plugins-&gt;Lock zoom to tile scale-&gt;Lock zoom scale.</em></strong></p>
+<p>In a coming release we may allow the user to select a layer to snapshot its fundamental resolutions for each zoom level and match the canvas to those resolutions. If you have any suggestions please let us know.</p>
+<p>Look at this example.</p>
+<div style="text-align:center"><img src="doc/example.png" alt="Example"></div>
+
+<p>The image on the left shows an Open Street Map layer that was initially displayed. The image on the right is what is displayed after the lock button was pressed. The results are somewhat subtle, but the clarity of the right image is better. This becomes more important if you are trying to read hard to read text.</p></body>
