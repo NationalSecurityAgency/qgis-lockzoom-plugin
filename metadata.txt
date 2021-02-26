@@ -2,7 +2,7 @@
 name=Lock Zoom to Tile Scale
 qgisMinimumVersion=3.2
 description=Lock the QGIS canvas scale/zoom level for EPSG:3857 and EPSG:4326 projects to predefined scales that are optimal for viewing XYZ and WMTS tiles.
-version=3.0.2
+version=3.0.3
 author=C Hamilton
 email=adenaculture@gmail.com
 about=
@@ -14,8 +14,9 @@ repository=https://github.com/NationalSecurityAgency/qgis-lockzoom-plugin
 homepage=https://github.com/NationalSecurityAgency/qgis-lockzoom-plugin/#readme
 tags=zoom,lock,XYZ tiles,wmts,zoom to scale,epsg:3857,epsg:4326
 category=Plugins
-icon=images/zoomLocked.png
+icon=icon.png
 experimental=False
 deprecated=False
 changelog=
+    3.0.3 - Use SVG rather than PNG icons
     3.0.2 - Increased max zoom level from 19 to 29

@@ -32,8 +32,8 @@ class LockZoomToTiles:
         '''Initialize Lock Zoom to Tiles GUI.'''
 
         icon = QIcon()
-        icon.addFile(os.path.dirname(__file__) + "/images/zoomUnlocked.png", state=QIcon.Off)
-        icon.addFile(os.path.dirname(__file__) + "/images/zoomLocked.png", state=QIcon.On)
+        icon.addFile(os.path.dirname(__file__) + "/images/zoomUnlocked.svg", state=QIcon.Off)
+        icon.addFile(os.path.dirname(__file__) + "/images/zoomLocked.svg", state=QIcon.On)
         self.action = QAction(icon, "Lock zoom scale", self.iface.mainWindow())
         self.action.setObjectName('lockZoom')
         self.action.triggered.connect(self.lockIt)
@@ -41,7 +41,7 @@ class LockZoomToTiles:
         self.iface.addPluginToMenu("Lock zoom to tile scale", self.action)
         self.iface.addToolBarIcon(self.action)
 
-        icon = QIcon(os.path.dirname(__file__) + '/images/help.png')
+        icon = QIcon(os.path.dirname(__file__) + '/images/help.svg')
         self.helpAction = QAction(icon, "Help", self.iface.mainWindow())
         self.helpAction.triggered.connect(self.help)
         self.iface.addPluginToMenu('Lock zoom to tile scale', self.helpAction)

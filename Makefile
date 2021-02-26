@@ -1,7 +1,7 @@
 PLUGINNAME = lockzoom
 PLUGINS = "$(HOME)"/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/$(PLUGINNAME)
 PY_FILES = __init__.py lockZoom.py 
-EXTRAS = metadata.txt
+EXTRAS = metadata.txt icon.png
 
 deploy:
 	mkdir -p $(PLUGINS)
